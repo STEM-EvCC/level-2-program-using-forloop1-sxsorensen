@@ -19,10 +19,7 @@ for x in mission_success: #for loop to count the number of successes found
 mission_success_rate = float(mission_success_count / mission_count * 100) #calculates the success rates
 
 #MISSIONS PRIOR TO THE YEAR 2000
-pre2k_missions = [] #define the list to populate
-for n, y in zip(mission_names, mission_years): #for loop to generate a list of mission prior to 2000
-    if y < 2000: 
-        pre2k_missions.append(n) #save the results to the list
+pre2k_missions = [n for n, y in zip(mission_names, mission_years) if y < 2000] #for loop to generate a list of mission prior to 2000
 
 #OUTPUT RESULTS TO SCREEN
 print("Total number of missions:", mission_count)
