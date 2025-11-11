@@ -12,14 +12,11 @@ mission_success = [True, False, True, True, True, True, False]
 
 #MISSION COUNTS AND SUCCESS RATE CALCULATIONS
 mission_count = len(mission_names) #count of missions
-mission_success_count = int(0) #define variable for successes as integer
-for x in mission_success: #for loop to count the number of successes found
-    if x == True:
-        mission_success_count += 1
-mission_success_rate = float(mission_success_count / mission_count * 100) #calculates the success rates
+mission_success_count = sum(1 for x in mission_success if x is True) #count successes
+mission_success_rate = float(mission_success_count / mission_count * 100) #calculates the success rate
 
 #MISSIONS PRIOR TO THE YEAR 2000
-pre2k_missions = [n for n, y in zip(mission_names, mission_years) if y < 2000] #for loop to generate a list of mission prior to 2000
+pre2k_missions = [n for n, y in zip(mission_names, mission_years) if y < 2000] #for loop to create a list of mission prior to 2000
 
 #OUTPUT RESULTS TO SCREEN
 print("Total number of missions:", mission_count)
